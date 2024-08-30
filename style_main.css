@@ -1,0 +1,126 @@
+:root {
+    --dynamicSize: 50px;
+    --dynamicBorderSize: 1px;
+    --dynamicMargin: 3px;
+}
+
+#body {
+    -webkit-tap-highlight-color: transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+    width: 100%;
+    height: 100vh;
+
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+
+}
+
+/* 여기서부터 핵심 css */
+.cell {
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: var(--dynamicSize);
+    width: var(--dynamicSize);
+    border: var(--dynamicBorderSize) solid hsl(200, 100%, 60%);
+    font-size: 1.5rem;
+    color: hsl(200, 100%, 60%);
+
+    border-radius: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 5px 5px 5px 5px;
+
+    transition: 0.3s ease;
+}
+
+.cell:hover {
+    margin: 0;
+    padding: 5px;
+}
+
+#backBoard {
+    padding: 2%;
+    border: none;
+    border-radius: 20px;
+}
+
+#board {
+    opacity: 0;
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    max-height: 1vh;
+    transition: all 3s ease;
+
+}
+
+.hiddenCell {
+    background-color: hsl(200, 100%, 60%);
+}
+
+.shownCell {
+    background-color: transparent;
+}
+
+.flaggedCell {
+    background-color: hsla(0, 0%, 0%, 0.4);
+}
+
+
+
+/* 여기서부터 negative border- 괜히 건드리면 큰일남!!!*/
+
+/* 각 모서리에 적용할 공통 스타일 */
+.corner {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px #fff;
+    /* 둥글게 파인 효과 */
+}
+
+/* 오른쪽 위 모서리에만 적용 */
+.top-right {
+    display: none;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+/* 오른쪽 아래 모서리에만 적용 */
+.bottom-right {
+    display: none;
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+}
+
+/* 왼쪽 아래 모서리에만 적용 */
+.bottom-left {
+    display: none;
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, 50%);
+}
+
+.top-left {
+    display: none;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+}

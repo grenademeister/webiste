@@ -1,0 +1,226 @@
+:root {
+    --dynamicSize: 40px;
+    --dynamicBorderSize: 1px;
+    --dynamicMargin: 3px;
+}
+
+/*menu css*/
+nav {
+    text-align: center;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#starter {
+    display: flex;
+    transition: 0.5s ease;
+    overflow: hidden;
+}
+
+@keyframes expand {
+    from {
+        max-width: 150px;
+    }
+
+    to {
+        max-width: 100%;
+    }
+}
+
+@keyframes collapse {
+    from {
+        max-width: 100%;
+    }
+
+    to {
+        max-width: 150px;
+    }
+}
+
+#starter.adding {
+    animation: expand 0.5s forwards;
+}
+
+#starter.removing {
+    animation: collapse 0.5s forwards;
+}
+
+
+#title {
+    font-size: 3rem;
+    color: white;
+    background-color: hsl(200, 100%, 60%);
+    border: 2px solid hsl(200, 100%, 60%);
+    padding: 30px;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+#selectionContainer {
+    display: flex;
+    width: 120px;
+    overflow: hidden;
+}
+
+#selection {
+    color: white;
+    margin: 50px;
+    font-size: 1.5rem;
+    padding: 20px 60px;
+    background-color: hsla(0, 0%, 0%, 0.6);
+    display: flex;
+    border-radius: 10px;
+}
+
+#selection button {
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: hsla(0, 0%, 100%, 1);
+    border: none;
+    padding: 0 10px;
+    margin: 0 30px;
+    transition: 0.5s ease;
+}
+
+#selection button:hover {
+    background-color: hsla(0, 0%, 100%, 0.8);
+}
+
+#selection button:active {
+    background-color: hsla(0, 0%, 100%, 0.6);
+}
+
+.selectionItem {
+    position: relative;
+    text-align: center;
+    width: 120px;
+    min-width: 120px;
+    transition: 1s ease;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#boardSizeInput {
+    margin-left: 30px;
+    text-align: center;
+    height: 60px;
+    font-size: 2rem;
+    border-radius: 10px;
+
+}
+
+#startButton {
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 15px 20px;
+    background-color: hsl(200, 100%, 60%);
+    border: none;
+    border-radius: 10px;
+}
+
+/*main 내용 아님, 잡다한 css*/
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.5s ease;
+}
+
+#remainMineDisplay {
+    font-size: 1.5rem;
+    margin: 20px;
+
+}
+
+#stopwatch {
+    font-size: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: hsl(0, 0%, 30%);
+    text-shadow: 2px 2px 2px hsla(0, 0%, 0%, 0.75);
+    margin-bottom: 25px;
+}
+
+#mode {
+    display: flex;
+    margin: 20px;
+    opacity: 0;
+    transition: all 3s ease;
+    border: 1px solid hsl(200, 100%, 60%);
+    border-radius: 40px;
+}
+
+#mode div {
+    display: flex;
+    align-items: center;
+
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 50%;
+    padding: 20px;
+    margin: 10px;
+
+    height: 20px;
+    width: 20px;
+
+    transition: 0.5s ease-in;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.5s ease;
+}
+
+
+
+/*popup test. 나중에 쓸것*/
+#popup {
+    width: 50%;
+    overflow: hidden;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+
+    top: 50vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+    border: 1px solid;
+    padding: 100px 50px;
+    border-radius: 10px;
+    background-color: hsl(200, 100%, 60%);
+    transition: 0.5s ease;
+}
+
+#popup button {
+    margin-top: 1vh;
+    max-width: 100%;
+    min-width: 50%;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: hsla(0, 0%, 100%, 1);
+    border: none;
+    padding: 20px 30px;
+    transition: 0.5s ease;
+}
